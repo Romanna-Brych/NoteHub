@@ -19,10 +19,13 @@ function SignIn() {
       setUser(user);
       router.push('/profile');
     },
-    onError: () => setError('Error'),
+    onError: () => {
+      setError('Invalid email or password');
+    },
   });
 
   const handleSubmit = (formData: FormData) => {
+    setError('');
     const formValues: RegisterRequest = {
       email: String(formData.get('email')),
       password: String(formData.get('password')),

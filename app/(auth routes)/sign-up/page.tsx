@@ -20,10 +20,14 @@ function SignUp() {
       setUser(user);
       router.push('/profile');
     },
-    onError: () => setError('User already exists or invalid data'),
+    onError: () => {
+      setError('User already exists or invalid data'
+      );
+    },
   });
 
   const handleSubmit = (formData: FormData) => {
+    setError('');
     const formValues: RegisterRequest = {
       email: String(formData.get('email')),
       password: String(formData.get('password')),
