@@ -44,8 +44,8 @@ export async function checkSessionServer(): Promise<boolean> {
   return res.data.success;
 }
 
-export async function getMe(): Promise<User> {
-  const { data } = await nextServer.get<User>('/auth/me', {
+export async function getMeServer(): Promise<User> {
+  const { data } = await nextServer.get<User>('/users/me', {
     headers: {
       Cookie: cookieStore.toString(),
     },

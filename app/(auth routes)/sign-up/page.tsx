@@ -1,8 +1,7 @@
 'use client';
-import { useRouter } from 'next/router';
 import css from './SignUpPage.module.css';
 import { useMutation } from '@tanstack/react-query';
-import { register } from '@/lib/api/clientApi';
+import { getMe, register } from '@/lib/api/clientApi';
 import { useState } from 'react';
 import { RegisterRequest } from '@/types/requests';
 import { useAuthStore } from '@/lib/store/authStore';
@@ -17,7 +16,11 @@ function SignUp() {
 
   const { mutate, isPending } = useMutation({
     mutationFn: register,
-    // onSuccess: () => router.push('/profile'),
+    onSuccess: async () => {
+      const user = await getMe();
+      setUser(user);
+    },
+    //router.push('/profile'),
     onError: () => setError('User already exists or invalid data'),
   });
 

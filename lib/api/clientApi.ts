@@ -52,6 +52,6 @@ export async function checkSession(): Promise<boolean> {
 }
 
 export async function getMe(): Promise<User> {
-  const { data } = await nextServer.get<User>('/auth/me');
+  const { data } = await nextServer.get<User>('/users/me');
   return data;
 }

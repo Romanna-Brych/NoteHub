@@ -1,18 +1,24 @@
 'use client';
 import { useState } from 'react';
 import css from './SignInPage.module.css';
-import { login } from '@/lib/api/clientApi';
+import { getMe, login } from '@/lib/api/clientApi';
 import { useMutation } from '@tanstack/react-query';
 import { RegisterRequest } from '@/types/requests';
+import { useAuthStore } from '@/lib/store/authStore';
 
 function SignIn() {
   // const router = useRouter();
   const [error, setError] = useState('');
+  const setUser = useAuthStore(state => state.setUser);
 
   const { mutate, isPending } = useMutation({
     mutationFn: login,
-    // onSuccess: () => router.push('/profile'),
-    onError: () => setError('User already exists or invalid data'),
+    onSuccess: async () => {
+      const user = await getMe();
+      setUser(user);
+    },
+    //router.push('/profile'),
+    onError: () => setError('Error'),
   });
 
   const handleSubmit = (formData: FormData) => {
