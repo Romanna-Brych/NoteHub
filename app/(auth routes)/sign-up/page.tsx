@@ -4,7 +4,7 @@ import css from './SignUpPage.module.css';
 import { useMutation } from '@tanstack/react-query';
 import { register } from '@/lib/api/clientApi';
 import { useState } from 'react';
-import { RegisterRequest } from '@/lib/api/clientApi';
+import { RegisterRequest } from '@/types/requests';
 import { useAuthStore } from '@/lib/store/authStore';
 
 //test123456@example.co

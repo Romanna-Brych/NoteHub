@@ -1,8 +1,9 @@
 'use client';
 import { useState } from 'react';
 import css from './SignInPage.module.css';
-import { login, RegisterRequest } from '@/lib/api/clientApi';
+import { login } from '@/lib/api/clientApi';
 import { useMutation } from '@tanstack/react-query';
+import { RegisterRequest } from '@/types/requests';
 
 function SignIn() {
   // const router = useRouter();

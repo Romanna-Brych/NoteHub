@@ -1,12 +1,9 @@
-// register;
-// login;
 // logout;
-// checkSession;
-// getMe;
 // updateMe;
 import { User } from '@/types/user';
 import type { FetchNotesResponse, NewNote, Note } from '../../types/note';
 import { nextServer } from './api';
+import { CheckSessionRequest, RegisterRequest } from '@/types/requests';
 
 export async function fetchNotes(
   searchValue: string,
@@ -39,11 +36,6 @@ export async function fetchNoteById(id: string): Promise<Note> {
   return data;
 }
 
-export interface RegisterRequest {
-  email: string;
-  password: string;
-}
-
 export async function register(userData: RegisterRequest): Promise<User> {
   const { data } = await nextServer.post<User>('/auth/register', userData);
   return data;
@@ -51,5 +43,15 @@ export async function register(userData: RegisterRequest): Promise<User> {
 
 export async function login(userData: RegisterRequest): Promise<User> {
   const { data } = await nextServer.post<User>('/auth/login', userData);
+  return data;
+}
+
+export async function checkSession(): Promise<boolean> {
+  const res = await nextServer.get<CheckSessionRequest>('/auth/session');
+  return res.data.success;
+}
+
+export async function getMe(): Promise<User> {
+  const { data } = await nextServer.get<User>('/auth/me');
   return data;
 }
