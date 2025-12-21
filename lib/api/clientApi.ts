@@ -1,9 +1,8 @@
-// logout;
 // updateMe;
 import { User } from '@/types/user';
 import type { FetchNotesResponse, NewNote, Note } from '../../types/note';
 import { nextServer } from './api';
-import { CheckSessionRequest, RegisterRequest } from '@/types/requests';
+import { CheckSessionRequest, RegisterRequest, UpdateMeRequest } from '@/types/requests';
 
 export async function fetchNotes(
   searchValue: string,
@@ -53,5 +52,14 @@ export async function checkSession(): Promise<boolean> {
 
 export async function getMe(): Promise<User> {
   const { data } = await nextServer.get<User>('/users/me');
+  return data;
+}
+
+export async function logout(): Promise<void> {
+  await nextServer.post('/auth/logout');
+}
+
+export async function updateMe(newData: UpdateMeRequest): Promise<User> {
+  const { data } = await nextServer.patch<User>('/users/me', newData);
   return data;
 }

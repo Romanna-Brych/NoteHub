@@ -3,6 +3,7 @@ import { nextServer } from './api';
 import { cookies } from 'next/headers';
 import { CheckSessionRequest } from '@/types/requests';
 import { User } from '@/types/user';
+import { AxiosResponse } from 'axios';
 
 export async function fetchNotesServer(
   searchValue: string,
@@ -34,17 +35,20 @@ export async function fetchNoteByIdServer(id: string): Promise<Note> {
   return data;
 }
 
-export async function checkSessionServer(): Promise<boolean> {
+export async function checkSessionServer(): Promise<
+  AxiosResponse<CheckSessionRequest>
+> {
   const cookieStore = await cookies();
   const res = await nextServer.get<CheckSessionRequest>('/auth/session', {
     headers: {
       Cookie: cookieStore.toString(),
     },
   });
-  return res.data.success;
+  return res;
 }
 
 export async function getMeServer(): Promise<User> {
+  const cookieStore = await cookies();
   const { data } = await nextServer.get<User>('/users/me', {
     headers: {
       Cookie: cookieStore.toString(),

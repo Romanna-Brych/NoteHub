@@ -5,12 +5,11 @@ import { getMe, register } from '@/lib/api/clientApi';
 import { useState } from 'react';
 import { RegisterRequest } from '@/types/requests';
 import { useAuthStore } from '@/lib/store/authStore';
-
-//test123456@example.co
+import { useRouter } from 'next/navigation';
 //StrongPass123
 
 function SignUp() {
-  // const router = useRouter();
+  const router = useRouter();
   const [error, setError] = useState('');
   const setUser = useAuthStore(state => state.setUser);
 
@@ -19,8 +18,8 @@ function SignUp() {
     onSuccess: async () => {
       const user = await getMe();
       setUser(user);
+      router.push('/profile');
     },
-    //router.push('/profile'),
     onError: () => setError('User already exists or invalid data'),
   });
 

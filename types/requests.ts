@@ -6,3 +6,7 @@ export interface RegisterRequest {
 export interface CheckSessionRequest {
   success: boolean;
 }
+
+export type UpdateMeRequest = {
+  username: string;
+};

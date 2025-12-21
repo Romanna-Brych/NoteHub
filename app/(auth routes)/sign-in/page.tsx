@@ -5,9 +5,10 @@ import { getMe, login } from '@/lib/api/clientApi';
 import { useMutation } from '@tanstack/react-query';
 import { RegisterRequest } from '@/types/requests';
 import { useAuthStore } from '@/lib/store/authStore';
+import { useRouter } from 'next/navigation';
 
 function SignIn() {
-  // const router = useRouter();
+  const router = useRouter();
   const [error, setError] = useState('');
   const setUser = useAuthStore(state => state.setUser);
 
@@ -16,8 +17,8 @@ function SignIn() {
     onSuccess: async () => {
       const user = await getMe();
       setUser(user);
+      router.push('/profile');
     },
-    //router.push('/profile'),
     onError: () => setError('Error'),
   });
 
