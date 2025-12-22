@@ -1,9 +1,9 @@
 'use client';
-import Link from 'next/link';
 import css from './AuthNavigation.module.css';
 import { useAuthStore } from '@/lib/store/authStore';
 import { logout } from '@/lib/api/clientApi';
 import { useRouter } from 'next/navigation';
+import NavLink from '../NavLink/NavLink';
 
 function AuthNavigation() {
   const router = useRouter();
@@ -24,13 +24,13 @@ function AuthNavigation() {
       {isAuthenticated ? (
         <>
           <li className={css.navigationItem}>
-            <Link
+            <NavLink
               href="/profile"
               prefetch={false}
               className={css.navigationLink}
             >
               Profile
-            </Link>
+            </NavLink>
           </li>
 
           <li className={css.navigationItem}>
@@ -43,23 +43,23 @@ function AuthNavigation() {
       ) : (
         <>
           <li className={css.navigationItem}>
-            <Link
+            <NavLink
               href="/sign-in"
               prefetch={false}
               className={css.navigationLink}
             >
               Login
-            </Link>
+            </NavLink>
           </li>
 
           <li className={css.navigationItem}>
-            <Link
+            <NavLink
               href="/sign-up"
               prefetch={false}
               className={css.navigationLink}
             >
               Sign up
-            </Link>
+            </NavLink>
           </li>
         </>
       )}

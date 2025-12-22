@@ -37,7 +37,7 @@ function SignIn() {
   return (
     <main className={css.mainContent}>
       <form action={handleSubmit} className={css.form}>
-        <h1 className={css.formTitle}>Sign in</h1>
+        <h1 className={css.formTitle}>Login</h1>
 
         <div className={css.formGroup}>
           <label htmlFor="email">Email</label>

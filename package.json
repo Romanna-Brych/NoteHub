@@ -13,6 +13,7 @@
     "axios": "^1.13.2",
     "cookie": "^1.1.1",
     "formik": "^2.4.9",
+    "framer-motion": "^12.23.26",
     "modern-normalize": "^3.0.1",
     "next": "^16.0.7",
     "react": "19.2.0",

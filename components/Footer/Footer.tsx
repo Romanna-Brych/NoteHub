@@ -1,4 +1,4 @@
-import css from "./Footer.module.css";
+import css from './Footer.module.css';
 
 function Footer() {
   return (
@@ -9,7 +9,7 @@ function Footer() {
           <p>Developer: Romanna Brych</p>
           <p>
             Contact us:
-            <a href="mailto:student@notehub.app">student@notehub.app</a>
+            <a href="mailto:romannabric@gmail.com"> romannabric@gmail.com</a>
           </p>
         </div>
       </div>

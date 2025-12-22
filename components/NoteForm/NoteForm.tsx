@@ -53,10 +53,8 @@ function NoteForm() {
   };
 
   const { mutate, isPending } = useMutation({
-    mutationKey: ['notes'],
     mutationFn: createNote,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['notes'] });
       clearDraft();
       router.push(`/notes/filter/${ALL_TAG}`);
     },

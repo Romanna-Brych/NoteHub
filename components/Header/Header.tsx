@@ -2,6 +2,7 @@ import Link from 'next/link';
 import css from './Header.module.css';
 import { ALL_TAG } from '@/lib/config/constants';
 import AuthNavigation from '../AuthNavigation/AuthNavigation';
+import NavLink from '../NavLink/NavLink';
 
 function Header() {
   return (
@@ -12,11 +13,25 @@ function Header() {
       <nav aria-label="Main Navigation">
         <ul className={css.navigation}>
           <li>
-            <Link href="/">Home</Link>
+            <NavLink
+              href="/"
+              exact
+              className={css.navLink}
+              activeClassName={css.active}
+            >
+              Home
+            </NavLink>
           </li>
           <li>
-            <Link href={`/notes/filter/${ALL_TAG}`}>Notes</Link>
+            <NavLink
+              href={`/notes/filter/${ALL_TAG}`}
+              className={css.navLink}
+              activeClassName={css.active}
+            >
+              Notes
+            </NavLink>
           </li>
+
           <AuthNavigation />
         </ul>
       </nav>
