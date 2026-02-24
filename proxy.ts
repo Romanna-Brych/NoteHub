@@ -110,6 +110,7 @@ export async function proxy(request: NextRequest) {
       // Якщо accessToken відсутній, але є refreshToken — потрібно перевірити сесію навіть для публічного маршруту,
       // адже сесія може залишатися активною, і тоді потрібно заборонити доступ до публічного маршруту.
       const data = await checkSessionServer();
+      console.log(data);
       const setCookie = data.headers['set-cookie'];
 
       if (setCookie) {

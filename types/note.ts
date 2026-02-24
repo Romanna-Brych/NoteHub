@@ -1,5 +1,5 @@
 export interface Note {
-  id: string;
+  _id: string;
   title: string;
   content: string;
   tag: NoteTag;
@@ -7,7 +7,17 @@ export interface Note {
   updatedAt: string;
 }
 
-export type NoteTag = 'Todo' | 'Work' | 'Personal' | 'Meeting' | 'Shopping';
+export type NoteTag =
+  | 'Work'
+  | 'Personal'
+  | 'Meeting'
+  | 'Shopping'
+  | 'Ideas'
+  | 'Travel'
+  | 'Finance'
+  | 'Health'
+  | 'Important'
+  | 'Todo';
 
 export interface NewNote {
   title: string;

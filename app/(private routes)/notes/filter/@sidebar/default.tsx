@@ -3,7 +3,18 @@ import css from './SidebarNotes.module.css';
 import Link from 'next/link';
 import { ALL_TAG } from '@/lib/config/constants';
 
-const TAGS: NoteTag[] = ['Todo', 'Work', 'Personal', 'Meeting', 'Shopping'];
+const TAGS: NoteTag[] = [
+  'Work',
+  'Personal',
+  'Meeting',
+  'Shopping',
+  'Ideas',
+  'Travel',
+  'Finance',
+  'Health',
+  'Important',
+  'Todo',
+];
 
 const SidebarNotes = () => {
   return (

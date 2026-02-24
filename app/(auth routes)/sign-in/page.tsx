@@ -30,7 +30,6 @@ function SignIn() {
       email: String(formData.get('email')),
       password: String(formData.get('password')),
     };
-    console.log(formValues);
     mutate(formValues);
   };
 

@@ -21,8 +21,7 @@ function SignUp() {
       router.push('/profile');
     },
     onError: () => {
-      setError('User already exists or invalid data'
-      );
+      setError('User already exists or invalid data');
     },
   });
 
@@ -32,7 +31,6 @@ function SignUp() {
       email: String(formData.get('email')),
       password: String(formData.get('password')),
     };
-    console.log(formValues);
     mutate(formValues);
   };
 

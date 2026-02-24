@@ -2,7 +2,11 @@
 import { User } from '@/types/user';
 import type { FetchNotesResponse, NewNote, Note } from '../../types/note';
 import { nextServer } from './api';
-import { CheckSessionRequest, RegisterRequest, UpdateMeRequest } from '@/types/requests';
+import {
+  CheckSessionRequest,
+  RegisterRequest,
+  UpdateMeRequest,
+} from '@/types/requests';
 
 export async function fetchNotes(
   searchValue: string,
@@ -45,8 +49,13 @@ export async function login(userData: RegisterRequest): Promise<User> {
   return data;
 }
 
+// export async function checkSession(): Promise<boolean> {
+//   const res = await nextServer.get<CheckSessionRequest>('/auth/session');
+//   return res.data.success;
+// }
+
 export async function checkSession(): Promise<boolean> {
-  const res = await nextServer.get<CheckSessionRequest>('/auth/session');
+  const res = await nextServer.get<CheckSessionRequest>('/auth/refresh');
   return res.data.success;
 }
 

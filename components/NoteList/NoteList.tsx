@@ -23,15 +23,15 @@ function NoteList({ notes }: NoteListProps) {
   return (
     <ul className={css.list}>
       {notes.map(note => (
-        <li className={css.listItem} key={note.id}>
+        <li className={css.listItem} key={note._id}>
           <h2 className={css.title}>{note.title}</h2>
           <p className={css.content}>{note.content}</p>
           <div className={css.footer}>
             <span className={css.tag}>{note.tag}</span>
-            <Link className={css.link} href={`/notes/${note.id}`}>
+            <Link className={css.link} href={`/notes/${note._id}`}>
               View details
             </Link>
-            <button onClick={() => mutate(note.id)} className={css.button}>
+            <button onClick={() => mutate(note._id)} className={css.button}>
               Delete
             </button>
           </div>
