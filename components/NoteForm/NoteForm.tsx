@@ -24,7 +24,21 @@ const NoteFormSchema = Yup.object().shape({
     .required(),
   content: Yup.string().max(500, 'Content is too long'),
   tag: Yup.string()
-    .oneOf(['Todo', 'Work', 'Personal', 'Meeting', 'Shopping'], 'Select tag')
+    .oneOf(
+      [
+        'Work',
+        'Personal',
+        'Meeting',
+        'Shopping',
+        'Ideas',
+        'Travel',
+        'Finance',
+        'Health',
+        'Important',
+        'Todo',
+      ],
+      'Select tag'
+    )
     .required(),
 });
 
@@ -127,6 +141,10 @@ function NoteForm() {
           <option value="Personal">Personal</option>
           <option value="Meeting">Meeting</option>
           <option value="Shopping">Shopping</option>
+          <option value="Ideas">Ideas</option>
+          <option value="Travel">Travel</option>
+          <option value="Health">Health</option>
+          <option value="Important">Important</option>
         </select>
         {errors.tag && <span className={css.error}>{errors.tag}</span>}
       </div>
