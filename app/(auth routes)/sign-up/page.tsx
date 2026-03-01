@@ -6,7 +6,6 @@ import { useState } from 'react';
 import { RegisterRequest } from '@/types/requests';
 import { useAuthStore } from '@/lib/store/authStore';
 import { useRouter } from 'next/navigation';
-//StrongPass123
 
 function SignUp() {
   const router = useRouter();
