@@ -37,7 +37,7 @@ NoteHub is a web application for creating, organizing, and managing notes. It al
 - CSS Modules
 
 ## Project Structure
-
+```
 app/
 ├── (auth routes)
 │   ├── sign-in
@@ -62,7 +62,7 @@ app/
 ├── loading.tsx
 ├── not-found.tsx
 └── page.tsx
-
+```
 ## Pages
 
 - `/` — Home page  
